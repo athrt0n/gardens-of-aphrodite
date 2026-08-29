@@ -3,103 +3,2247 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Gardens of Aphrodite</title>
 <meta name="description" content="Gardens of Aphrodite — an ah1 production.">
+
 <style>
+
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap');
-:root{--gold:#d7b56d;--gold2:#f4df9c;--ink:#080706;--stone:#17130e;--cream:#eee5d0}
-*{box-sizing:border-box;scroll-behavior:smooth}
-body{margin:0;background:var(--ink);color:var(--cream);font-family:Montserrat,sans-serif;overflow-x:hidden}
-body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:20;background:radial-gradient(circle at 50% 20%,transparent 0 30%,rgba(0,0,0,.48) 100%)}
-a{color:inherit;text-decoration:none}
-nav{position:fixed;top:0;left:0;right:0;z-index:15;padding:24px 5vw;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(#050403cc,transparent)}
-.logo{font-family:Cinzel,serif;letter-spacing:5px;font-size:18px;color:var(--gold2)}
-.links{display:flex;gap:30px;font-size:11px;letter-spacing:2px;text-transform:uppercase}
-.links a{opacity:.8;transition:.3s}.links a:hover{opacity:1;color:var(--gold2)}
-.hero{height:100vh;min-height:700px;display:grid;place-items:center;text-align:center;position:relative;overflow:hidden;background:
-radial-gradient(ellipse at 50% 65%,#5d4523 0%,#241a0d 18%,#0b0907 48%,#030303 100%)}
-.hero:after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 9%,rgba(215,181,109,.045) 9.1% 9.2%);opacity:.4}
-.pillars{position:absolute;inset:0;pointer-events:none}
-.pillar{position:absolute;bottom:-5%;width:11%;height:78%;background:linear-gradient(90deg,#19140e,#807053 45%,#2a2116);box-shadow:0 0 60px #000}
-.pillar:before,.pillar:after{content:"";position:absolute;left:-15%;width:130%;height:5%;background:#a58b5b;border:3px solid #382b18}
-.pillar:before{top:0}.pillar:after{bottom:0}
-.p1{left:3%;transform:skewY(-1deg)}.p2{right:3%;transform:skewY(1deg)}
-.arch{position:absolute;top:13%;width:min(72vw,900px);height:60%;border:10px solid #5d4827;border-bottom:0;border-radius:450px 450px 0 0;box-shadow:inset 0 0 50px #000,0 0 50px #000}
-.hero-content{position:relative;z-index:3;animation:rise 1.6s ease both}
-.eyebrow{font-size:11px;letter-spacing:7px;text-transform:uppercase;color:var(--gold);margin-bottom:22px}
-h1{font-family:Cinzel,serif;font-size:clamp(48px,9vw,120px);line-height:.9;margin:0;letter-spacing:5px;font-weight:500;text-shadow:0 5px 35px #000}
-.subtitle{margin:26px auto 34px;max-width:600px;color:#c9bda5;font-size:13px;letter-spacing:3px;text-transform:uppercase}
-.cta{display:inline-block;border:1px solid var(--gold);padding:15px 28px;font-size:10px;letter-spacing:3px;text-transform:uppercase;transition:.35s}
-.cta:hover{background:var(--gold);color:#100d08;box-shadow:0 0 30px #d7b56d55}
-.scroll{position:absolute;bottom:25px;left:50%;transform:translateX(-50%);font-size:9px;letter-spacing:3px;color:#9d8f74}
-section{padding:110px 7vw;position:relative}
-.section-head{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:45px}
-.kicker{color:var(--gold);font-size:10px;letter-spacing:4px;text-transform:uppercase}
-h2{font:500 clamp(34px,5vw,58px) Cinzel,serif;margin:8px 0 0;color:#f4ead4}
-.intro{max-width:470px;color:#9f947f;font-size:13px;line-height:1.8}
-.contestants{background:linear-gradient(#080706,#100d09)}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.card{height:430px;position:relative;overflow:hidden;background:linear-gradient(145deg,#342817,#090806);border:1px solid #5b4828;cursor:pointer}
-.card .portrait{position:absolute;inset:0;background:
-radial-gradient(circle at 50% 28%,#b28f5e 0 7%,transparent 7.5%),
-radial-gradient(ellipse at 50% 48%,#5c4931 0 16%,transparent 16.5%),
-linear-gradient(120deg,#1a130b,#7a5d35 48%,#080706 49%);filter:saturate(.75)}
-.card:nth-child(2) .portrait{filter:hue-rotate(25deg) saturate(.8)}.card:nth-child(3) .portrait{filter:hue-rotate(-35deg) saturate(.8)}.card:nth-child(4) .portrait{filter:hue-rotate(55deg) saturate(.7)}
-.card:after{content:"";position:absolute;inset:45% 0 0;background:linear-gradient(transparent,#050403)}
-.card-info{position:absolute;z-index:2;bottom:22px;left:22px}
-.number{font-size:9px;letter-spacing:3px;color:var(--gold)}
-.card h3{font:500 25px Cinzel,serif;margin:6px 0}.tag{font-size:9px;letter-spacing:2px;color:#aaa08e;text-transform:uppercase}
-.card:hover{transform:translateY(-7px);box-shadow:0 15px 45px #000;transition:.4s}
-.episodes{background:#0d0a07}
-.episode{display:grid;grid-template-columns:130px 1fr auto;gap:30px;align-items:center;padding:28px 0;border-top:1px solid #332919}
-.epno{font:500 28px Cinzel;color:var(--gold)}.episode h3{font:500 22px Cinzel;margin:0 0 7px}.episode p{margin:0;color:#928876;font-size:12px;line-height:1.6}.watch{font-size:9px;letter-spacing:2px;text-transform:uppercase;border-bottom:1px solid var(--gold);padding-bottom:5px}
-.about{min-height:550px;text-align:center;background:radial-gradient(circle,#2b2113,#090806 60%)}
-.about p{max-width:680px;margin:25px auto;color:#a99c86;line-height:2;font-size:14px}
-footer{padding:45px 7vw;border-top:1px solid #2e2518;display:flex;justify-content:space-between;color:#756b5b;font-size:9px;letter-spacing:2px;text-transform:uppercase}
-.reveal{opacity:0;transform:translateY(30px);transition:1s}.reveal.show{opacity:1;transform:none}
-@keyframes rise{from{opacity:0;transform:translateY(30px) scale(.98)}to{opacity:1;transform:none}}
-@media(max-width:800px){.links{display:none}.grid{grid-template-columns:repeat(2,1fr)}.card{height:350px}.section-head{display:block}.intro{margin-top:20px}.episode{grid-template-columns:60px 1fr}.watch{display:none}}
-@media(max-width:500px){.grid{grid-template-columns:1fr}.card{height:390px}section{padding:80px 6vw}.hero{min-height:650px}}
+
+:root{
+    --gold:#d7b56d;
+    --gold2:#f4df9c;
+    --gold3:#8f6d35;
+    --ink:#080706;
+    --stone:#17130e;
+    --stone2:#211a11;
+    --cream:#eee5d0;
+    --muted:#9f947f;
+}
+
+*{
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    background:var(--ink);
+    color:var(--cream);
+    font-family:Montserrat,sans-serif;
+    overflow-x:hidden;
+}
+
+body:before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:50;
+    background:
+    radial-gradient(
+        circle at 50% 20%,
+        transparent 0 30%,
+        rgba(0,0,0,.55) 100%
+    );
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:100;
+    padding:24px 5vw;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:linear-gradient(#050403dd,transparent);
+    transition:.4s;
+}
+
+nav.scrolled{
+    background:rgba(5,4,3,.92);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(215,181,109,.12);
+}
+
+.logo{
+    font-family:Cinzel,serif;
+    letter-spacing:5px;
+    font-size:18px;
+    color:var(--gold2);
+}
+
+.links{
+    display:flex;
+    gap:30px;
+    font-size:11px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+
+.links a{
+    opacity:.8;
+    transition:.3s;
+}
+
+.links a:hover{
+    opacity:1;
+    color:var(--gold2);
+}
+
+
+/* =========================================================
+   PARTICLES
+========================================================= */
+
+#particles{
+    position:absolute;
+    inset:0;
+    z-index:7;
+    pointer-events:none;
+    overflow:hidden;
+}
+
+.particle{
+    position:absolute;
+    width:2px;
+    height:2px;
+    border-radius:50%;
+    background:#f4df9c;
+    box-shadow:
+        0 0 5px #d7b56d,
+        0 0 12px rgba(215,181,109,.7);
+
+    opacity:0;
+
+    animation:
+        particleFloat linear infinite;
+}
+
+@keyframes particleFloat{
+
+    0%{
+        transform:
+            translate3d(0,40px,0)
+            scale(.3);
+
+        opacity:0;
+    }
+
+    15%{
+        opacity:.8;
+    }
+
+    70%{
+        opacity:.4;
+    }
+
+    100%{
+        transform:
+            translate3d(var(--drift),-110vh,0)
+            scale(1.1);
+
+        opacity:0;
+    }
+
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+    height:100vh;
+    min-height:700px;
+
+    display:grid;
+    place-items:center;
+
+    text-align:center;
+
+    position:relative;
+    overflow:hidden;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 70%,
+            rgba(117,84,35,.55) 0%,
+            rgba(48,34,18,.55) 18%,
+            rgba(13,10,7,.95) 48%,
+            #020202 100%
+        );
+}
+
+
+/* subtle stone texture */
+
+.hero:before{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.018) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            rgba(255,255,255,.012) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        90px 90px,
+        90px 90px;
+
+    opacity:.35;
+}
+
+
+/* vignette */
+
+.hero:after{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            transparent 25%,
+            rgba(0,0,0,.35) 65%,
+            #000 100%
+        );
+
+    pointer-events:none;
+}
+
+
+/* =========================================================
+   TEMPLE ARCHITECTURE
+========================================================= */
+
+.pillars{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    z-index:2;
+}
+
+
+/* individual pillar */
+
+.pillar{
+    position:absolute;
+    bottom:-7%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #090806 0%,
+            #211a11 18%,
+            #77603b 46%,
+            #382b19 72%,
+            #080706 100%
+        );
+
+    box-shadow:
+        inset 12px 0 20px #000,
+        inset -12px 0 20px #000,
+        0 0 60px #000;
+
+    filter:drop-shadow(0 0 20px #000);
+}
+
+
+/* vertical grooves */
+
+.pillar:before{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            transparent 0 13%,
+            rgba(244,223,156,.07) 14% 16%,
+            transparent 17% 30%
+        );
+
+    opacity:.8;
+}
+
+
+/* pillar capital */
+
+.pillar:after{
+    content:"";
+    position:absolute;
+
+    left:-12%;
+    width:124%;
+
+    top:-3%;
+
+    height:9%;
+
+    background:
+        linear-gradient(
+            #c5a666,
+            #806239 40%,
+            #342617 70%,
+            #9a7a45
+        );
+
+    border:1px solid #9a7a45;
+
+    clip-path:
+        polygon(
+            5% 0,
+            95% 0,
+            100% 35%,
+            88% 100%,
+            12% 100%,
+            0 35%
+        );
+
+    box-shadow:
+        0 5px 20px #000;
+}
+
+
+/* left foreground column */
+
+.p1{
+    left:-1%;
+    width:14%;
+    height:82%;
+    transform:perspective(800px) rotateY(8deg);
+}
+
+
+/* left middle column */
+
+.p2{
+    left:15%;
+    width:8%;
+    height:65%;
+    opacity:.72;
+    transform:perspective(800px) rotateY(12deg);
+}
+
+
+/* right middle column */
+
+.p3{
+    right:15%;
+    width:8%;
+    height:68%;
+    opacity:.72;
+    transform:perspective(800px) rotateY(-12deg);
+}
+
+
+/* right foreground column */
+
+.p4{
+    right:-1%;
+    width:14%;
+    height:84%;
+    transform:perspective(800px) rotateY(-8deg);
+}
+
+
+/* smaller distant columns */
+
+.p5{
+    left:38%;
+    width:4%;
+    height:46%;
+    opacity:.35;
+}
+
+.p6{
+    right:38%;
+    width:4%;
+    height:48%;
+    opacity:.35;
+}
+
+
+/* =========================================================
+   ARCH
+========================================================= */
+
+.arch{
+    position:absolute;
+
+    top:12%;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:min(72vw,920px);
+    height:62%;
+
+    border:
+        9px solid #594526;
+
+    border-bottom:0;
+
+    border-radius:
+        50% 50% 0 0;
+
+    box-shadow:
+        inset 0 0 70px #000,
+        0 0 50px #000;
+
+    opacity:.75;
+}
+
+.arch:before{
+    content:"";
+
+    position:absolute;
+    inset:4% 4% 0;
+
+    border:
+        2px solid rgba(215,181,109,.4);
+
+    border-bottom:0;
+
+    border-radius:
+        50% 50% 0 0;
+}
+
+
+/* central temple altar */
+
+.altar{
+    position:absolute;
+
+    bottom:-1%;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:min(46vw,560px);
+    height:15%;
+
+    background:
+        linear-gradient(
+            #3a2b18,
+            #110d08
+        );
+
+    clip-path:
+        polygon(
+            10% 0,
+            90% 0,
+            100% 100%,
+            0 100%
+        );
+
+    box-shadow:
+        0 -20px 50px #000;
+}
+
+.altar:before{
+    content:"";
+
+    position:absolute;
+
+    top:8%;
+    left:10%;
+    right:10%;
+
+    height:3px;
+
+    background:var(--gold);
+
+    box-shadow:
+        0 0 20px var(--gold);
+}
+
+
+/* =========================================================
+   HERO TEXT
+========================================================= */
+
+.hero-content{
+    position:relative;
+    z-index:10;
+
+    animation:
+        rise 1.6s ease both;
+
+    padding:0 20px;
+}
+
+.eyebrow{
+    font-size:11px;
+    letter-spacing:7px;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:22px;
+}
+
+h1{
+    font-family:Cinzel,serif;
+
+    font-size:
+        clamp(48px,9vw,120px);
+
+    line-height:.9;
+
+    margin:0;
+
+    letter-spacing:5px;
+
+    font-weight:500;
+
+    text-shadow:
+        0 5px 35px #000,
+        0 0 50px rgba(0,0,0,.7);
+}
+
+.subtitle{
+    margin:
+        26px auto 34px;
+
+    max-width:600px;
+
+    color:#c9bda5;
+
+    font-size:13px;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+}
+
+.cta{
+    display:inline-block;
+
+    border:1px solid var(--gold);
+
+    padding:15px 28px;
+
+    font-size:10px;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+
+    transition:.35s;
+}
+
+.cta:hover{
+    background:var(--gold);
+
+    color:#100d08;
+
+    box-shadow:
+        0 0 30px rgba(215,181,109,.35);
+}
+
+.scroll{
+    position:absolute;
+
+    z-index:10;
+
+    bottom:25px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    font-size:9px;
+
+    letter-spacing:3px;
+
+    color:#9d8f74;
+
+    animation:
+        scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse{
+
+    0%,100%{
+        opacity:.45;
+        transform:translateX(-50%) translateY(0);
+    }
+
+    50%{
+        opacity:1;
+        transform:translateX(-50%) translateY(5px);
+    }
+
+}
+
+
+/* =========================================================
+   GENERAL SECTIONS
+========================================================= */
+
+section{
+    padding:110px 7vw;
+    position:relative;
+}
+
+.section-head{
+    display:flex;
+    align-items:end;
+    justify-content:space-between;
+    gap:30px;
+
+    margin-bottom:45px;
+}
+
+.kicker{
+    color:var(--gold);
+
+    font-size:10px;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+}
+
+h2{
+    font:
+        500 clamp(34px,5vw,58px)
+        Cinzel,serif;
+
+    margin:8px 0 0;
+
+    color:#f4ead4;
+}
+
+.intro{
+    max-width:470px;
+
+    color:#9f947f;
+
+    font-size:13px;
+
+    line-height:1.8;
+}
+
+
+/* =========================================================
+   CONTESTANTS
+========================================================= */
+
+.contestants{
+    background:
+        linear-gradient(
+            #080706,
+            #100d09
+        );
+}
+
+.grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:18px;
+}
+
+
+/* contestant card */
+
+.card{
+    height:430px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            #342817,
+            #090806
+        );
+
+    border:
+        1px solid #5b4828;
+
+    cursor:pointer;
+
+    transition:
+        transform .4s,
+        box-shadow .4s,
+        border-color .4s;
+}
+
+
+/* portrait */
+
+.card .portrait{
+    position:absolute;
+
+    inset:0;
+
+    background:
+        radial-gradient(
+            circle at 50% 28%,
+            #b28f5e 0 7%,
+            transparent 7.5%
+        ),
+
+        radial-gradient(
+            ellipse at 50% 48%,
+            #5c4931 0 16%,
+            transparent 16.5%
+        ),
+
+        linear-gradient(
+            120deg,
+            #1a130b,
+            #7a5d35 48%,
+            #080706 49%
+        );
+
+    filter:saturate(.75);
+
+    transition:
+        transform .7s,
+        filter .7s;
+}
+
+
+/* different portrait tones */
+
+.card:nth-child(3n+1) .portrait{
+    filter:
+        hue-rotate(5deg)
+        saturate(.8);
+}
+
+.card:nth-child(3n+2) .portrait{
+    filter:
+        hue-rotate(25deg)
+        saturate(.8);
+}
+
+.card:nth-child(3n) .portrait{
+    filter:
+        hue-rotate(-25deg)
+        saturate(.8);
+}
+
+
+/* card shine */
+
+.card:before{
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:1;
+
+    background:
+        linear-gradient(
+            135deg,
+            transparent 35%,
+            rgba(244,223,156,.1),
+            transparent 65%
+        );
+
+    transform:
+        translateX(-100%);
+
+    transition:
+        transform .7s;
+}
+
+
+/* bottom gradient */
+
+.card:after{
+    content:"";
+
+    position:absolute;
+
+    inset:45% 0 0;
+
+    background:
+        linear-gradient(
+            transparent,
+            #050403
+        );
+}
+
+
+/* information */
+
+.card-info{
+    position:absolute;
+
+    z-index:3;
+
+    bottom:22px;
+    left:22px;
+    right:15px;
+}
+
+.number{
+    font-size:9px;
+
+    letter-spacing:3px;
+
+    color:var(--gold);
+}
+
+.card h3{
+    font:
+        500 23px
+        Cinzel,serif;
+
+    margin:6px 0;
+}
+
+.tag{
+    font-size:9px;
+
+    letter-spacing:2px;
+
+    color:#aaa08e;
+
+    text-transform:uppercase;
+}
+
+
+/* hover */
+
+.card:hover{
+    transform:
+        translateY(-8px);
+
+    box-shadow:
+        0 20px 50px #000;
+
+    border-color:
+        var(--gold);
+}
+
+.card:hover .portrait{
+    transform:
+        scale(1.07);
+}
+
+.card:hover:before{
+    transform:
+        translateX(100%);
+}
+
+
+/* =========================================================
+   PROFILE PAGES
+========================================================= */
+
+.profile-page{
+    display:none;
+
+    min-height:100vh;
+
+    padding:
+        150px 7vw 90px;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            #332514 0%,
+            #100c08 48%,
+            #050403 100%
+        );
+}
+
+.profile-page.active{
+    display:block;
+}
+
+.profile-inner{
+    max-width:1150px;
+    margin:auto;
+}
+
+.profile-back{
+    display:inline-block;
+
+    font-size:9px;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+
+    color:var(--gold);
+
+    border-bottom:
+        1px solid var(--gold3);
+
+    padding-bottom:8px;
+
+    margin-bottom:40px;
+
+    transition:.3s;
+}
+
+.profile-back:hover{
+    color:var(--gold2);
+
+    border-color:
+        var(--gold2);
+}
+
+.profile-box{
+    display:grid;
+
+    grid-template-columns:
+        42% 58%;
+
+    min-height:580px;
+
+    border:
+        1px solid #5b4828;
+
+    background:
+        rgba(5,4,3,.55);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.45);
+}
+
+
+/* profile portrait */
+
+.profile-portrait{
+    position:relative;
+
+    min-height:580px;
+
+    overflow:hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 27%,
+            #c29d61 0 8%,
+            transparent 8.5%
+        ),
+
+        radial-gradient(
+            ellipse at 50% 47%,
+            #665039 0 19%,
+            transparent 19.5%
+        ),
+
+        linear-gradient(
+            125deg,
+            #120e08,
+            #755b35 48%,
+            #080706 49%
+        );
+}
+
+.profile-portrait:before{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            transparent 0 10%,
+            rgba(244,223,156,.05) 11% 12%,
+            transparent 13% 25%
+        );
+}
+
+.profile-portrait:after{
+    content:"";
+
+    position:absolute;
+
+    inset:45% 0 0;
+
+    background:
+        linear-gradient(
+            transparent,
+            #050403
+        );
+}
+
+
+/* profile information */
+
+.profile-content{
+    padding:
+        60px;
+}
+
+.profile-content .number{
+    margin-bottom:15px;
+}
+
+.profile-content h2{
+    font-size:
+        clamp(38px,5vw,70px);
+
+    line-height:.95;
+
+    margin-bottom:15px;
+}
+
+.divine-parent{
+    color:var(--gold);
+
+    font-size:11px;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+
+    margin-bottom:35px;
+}
+
+.profile-description{
+    max-width:600px;
+
+    color:#b2a58e;
+
+    line-height:1.9;
+
+    font-size:14px;
+}
+
+.profile-details{
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:18px;
+
+    margin-top:40px;
+}
+
+.detail{
+    border-top:
+        1px solid #3b2e1d;
+
+    padding-top:15px;
+}
+
+.detail span{
+    display:block;
+
+    color:#756b5b;
+
+    font-size:8px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    margin-bottom:7px;
+}
+
+.detail strong{
+    font-family:Cinzel,serif;
+
+    font-weight:500;
+
+    color:#dfd2b9;
+}
+
+
+/* =========================================================
+   EPISODES
+========================================================= */
+
+.episodes{
+    background:#0d0a07;
+}
+
+.episode{
+    display:grid;
+
+    grid-template-columns:
+        130px 1fr auto;
+
+    gap:30px;
+
+    align-items:center;
+
+    padding:28px 0;
+
+    border-top:
+        1px solid #332919;
+}
+
+.epno{
+    font:
+        500 28px
+        Cinzel;
+
+    color:var(--gold);
+}
+
+.episode h3{
+    font:
+        500 22px
+        Cinzel;
+
+    margin:
+        0 0 7px;
+}
+
+.episode p{
+    margin:0;
+
+    color:#928876;
+
+    font-size:12px;
+
+    line-height:1.6;
+}
+
+.watch{
+    font-size:9px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    border-bottom:
+        1px solid var(--gold);
+
+    padding-bottom:5px;
+
+    transition:.3s;
+}
+
+.watch:hover{
+    color:var(--gold2);
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about{
+    min-height:550px;
+
+    text-align:center;
+
+    background:
+        radial-gradient(
+            circle,
+            #2b2113,
+            #090806 60%
+        );
+}
+
+.about p{
+    max-width:680px;
+
+    margin:
+        25px auto;
+
+    color:#a99c86;
+
+    line-height:2;
+
+    font-size:14px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    padding:
+        45px 7vw;
+
+    border-top:
+        1px solid #2e2518;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    color:#756b5b;
+
+    font-size:9px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+}
+
+
+/* =========================================================
+   REVEAL ANIMATION
+========================================================= */
+
+.reveal{
+    opacity:0;
+
+    transform:
+        translateY(30px);
+
+    transition:
+        1s;
+}
+
+.reveal.show{
+    opacity:1;
+
+    transform:none;
+}
+
+@keyframes rise{
+
+    from{
+        opacity:0;
+
+        transform:
+            translateY(30px)
+            scale(.98);
+    }
+
+    to{
+        opacity:1;
+
+        transform:none;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1000px){
+
+    .grid{
+        grid-template-columns:
+            repeat(3,1fr);
+    }
+
+    .profile-box{
+        grid-template-columns:
+            1fr;
+    }
+
+    .profile-portrait{
+        min-height:450px;
+    }
+
+}
+
+
+@media(max-width:800px){
+
+    .links{
+        display:none;
+    }
+
+    .grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .card{
+        height:390px;
+    }
+
+    .section-head{
+        display:block;
+    }
+
+    .intro{
+        margin-top:20px;
+    }
+
+    .episode{
+        grid-template-columns:
+            60px 1fr;
+    }
+
+    .watch{
+        display:none;
+    }
+
+    .profile-content{
+        padding:40px;
+    }
+
+    .pillar.p2,
+    .pillar.p3,
+    .pillar.p5,
+    .pillar.p6{
+        display:none;
+    }
+
+}
+
+
+@media(max-width:500px){
+
+    .grid{
+        grid-template-columns:
+            1fr;
+    }
+
+    .card{
+        height:390px;
+    }
+
+    section{
+        padding:
+            80px 6vw;
+    }
+
+    .hero{
+        min-height:650px;
+    }
+
+    .profile-page{
+        padding:
+            120px 6vw 70px;
+    }
+
+    .profile-details{
+        grid-template-columns:
+            1fr;
+    }
+
+    .profile-content{
+        padding:30px;
+    }
+
+    .profile-portrait{
+        min-height:380px;
+    }
+
+    footer{
+        flex-direction:column;
+        gap:15px;
+    }
+
+}
+
 </style>
 </head>
+
 <body>
-<nav><a class="logo" href="#home">AH1</a><div class="links"><a href="#contestants">Contestants</a><a href="#episodes">Episodes</a><a href="#about">The Garden</a></div></nav>
+
+
+<!-- =======================================================
+     NAVIGATION
+======================================================== -->
+
+<nav id="nav">
+
+<a class="logo" href="#home">
+AH1
+</a>
+
+<div class="links">
+
+<a href="#contestants">
+Contestants
+</a>
+
+<a href="#episodes">
+Episodes
+</a>
+
+<a href="#about">
+The Garden
+</a>
+
+</div>
+
+</nav>
+
+
+<!-- =======================================================
+     PARTICLES
+======================================================== -->
+
+<div id="particles"></div>
+
+
+<!-- =======================================================
+     MAIN WEBSITE
+======================================================== -->
+
+<main id="main-site">
+
+
+<!-- =======================================================
+     HERO / LANDING PAGE
+======================================================== -->
 
 <header class="hero" id="home">
-<div class="pillars"><div class="pillar p1"></div><div class="pillar p2"></div><div class="arch"></div></div>
+
+
+<div class="pillars">
+
+<div class="pillar p1"></div>
+
+<div class="pillar p2"></div>
+
+<div class="pillar p3"></div>
+
+<div class="pillar p4"></div>
+
+<div class="pillar p5"></div>
+
+<div class="pillar p6"></div>
+
+<div class="arch"></div>
+
+<div class="altar"></div>
+
+</div>
+
+
 <div class="hero-content">
-<div class="eyebrow">AN AH1 PRODUCTION</div>
-<h1>Gardens<br>of Aphrodite</h1>
-<div class="subtitle">Season One: New Beginnings.</div>
-<a class="cta" href="#contestants">Enter The Garden</a>
-</div><div class="scroll">↓ &nbsp; DESCEND</div>
+
+<div class="eyebrow">
+AN AH1 PRODUCTION
+</div>
+
+<h1>
+Gardens<br>
+of Aphrodite
+</h1>
+
+<div class="subtitle">
+Season One: New Beginnings.
+</div>
+
+<a class="cta" href="#contestants">
+Enter The Garden
+</a>
+
+</div>
+
+
+<div class="scroll">
+↓ &nbsp; DESCEND
+</div>
+
+
 </header>
 
+
+
+<!-- =======================================================
+     CONTESTANTS
+======================================================== -->
+
 <section class="contestants" id="contestants">
-<div class="section-head reveal"><div><div class="kicker">Daughters Of The Gods</div><h2>Meet The Goddesses</h2></div><p class="intro">12 children of the Greek Gods compete for the ultimate title of The Goddess of Elystria.</p></div>
-<div class="grid">
-<div class="card reveal"><div class="portrait"></div><div class="card-info"><div class="number">01</div><h3>Angelica</h3><div class="tag">Daughter Of Flora</div></div></div>
-<div class="card reveal"><div class="portrait"></div><div class="card-info"><div class="number">02</div><h3>Envy</h3><div class="tag">Daughter Of Hera</div></div></div>
-<div class="card reveal"><div class="portrait"></div><div class="card-info"><div class="number">03</div><h3>Miho</h3><div class="tag">Daughter Of Persephone</div></div></div>
-<div class="card reveal"><div class="portrait"></div><div class="card-info"><div class="number">04</div><h3>Nada Bitch</h3><div class="tag">Daughter Of Nike</div></div></div>
+
+
+<div class="section-head reveal">
+
+<div>
+
+<div class="kicker">
+Daughters Of The Gods
 </div>
+
+<h2>
+Meet The Goddesses
+</h2>
+
+</div>
+
+
+<p class="intro">
+12 children of the Greek Gods compete for the ultimate title of The Goddess of Elystria.
+</p>
+
+</div>
+
+
+<div class="grid" id="contestantGrid">
+</div>
+
+
 </section>
+
+
+
+<!-- =======================================================
+     EPISODES
+======================================================== -->
 
 <section class="episodes" id="episodes">
-<div class="section-head reveal"><div><div class="kicker">The Tasks</div><h2>Episodes</h2></div><p class="intro">To prove their power, the Goddesses are put through trials.</p></div>
-<div class="episode reveal"><div class="epno">00</div><div><h3>Promo Reveal Trailer</h3><p>The queens arrive at the temple and discover that their first trial is already underway.</p></div><a class="watch" href="#">View Episode</a></div>
-<div class="episode reveal"><div class="epno">02</div><div><h3>Meet The Goddesses</h3><p>A beauty contest fit for three goddesses — but only one can claim the apple.</p></div><a class="watch" href="#">View Episode</a></div>
-<div class="episode reveal"><div class="epno">03</div><div><h3>Entrance Reveal</h3><p>Ancient rivalries surface as the queens are forced to reveal their divine weaknesses.</p></div><a class="watch" href="#">View Episode</a></div>
-<div class="episode reveal"><div class="epno">04</div><div><h3>New Tides [PT. 1]</h3><p>The garden opens its most forbidden chamber. Not everyone will survive the night.</p></div><a class="watch" href="#">View Episode</a></div>
+
+
+<div class="section-head reveal">
+
+<div>
+
+<div class="kicker">
+The Tasks
+</div>
+
+<h2>
+Episodes
+</h2>
+
+</div>
+
+
+<p class="intro">
+To prove their power, the Goddesses are put through trials.
+</p>
+
+</div>
+
+
+<div class="episode reveal">
+
+<div class="epno">
+00
+</div>
+
+<div>
+
+<h3>
+Promo Reveal Trailer
+</h3>
+
+<p>
+The queens arrive at the temple and discover that their first trial is already underway.
+</p>
+
+</div>
+
+<a class="watch" href="#">
+View Episode
+</a>
+
+</div>
+
+
+<div class="episode reveal">
+
+<div class="epno">
+02
+</div>
+
+<div>
+
+<h3>
+Meet The Goddesses
+</h3>
+
+<p>
+A beauty contest fit for three goddesses — but only one can claim the apple.
+</p>
+
+</div>
+
+<a class="watch" href="#">
+View Episode
+</a>
+
+</div>
+
+
+<div class="episode reveal">
+
+<div class="epno">
+03
+</div>
+
+<div>
+
+<h3>
+Entrance Reveal
+</h3>
+
+<p>
+Ancient rivalries surface as the queens are forced to reveal their divine weaknesses.
+</p>
+
+</div>
+
+<a class="watch" href="#">
+View Episode
+</a>
+
+</div>
+
+
+<div class="episode reveal">
+
+<div class="epno">
+04
+</div>
+
+<div>
+
+<h3>
+New Tides [PT. 1]
+</h3>
+
+<p>
+The garden opens its most forbidden chamber. Not everyone will survive the night.
+</p>
+
+</div>
+
+<a class="watch" href="#">
+View Episode
+</a>
+
+</div>
+
+
 </section>
 
+
+
+<!-- =======================================================
+     ABOUT
+======================================================== -->
+
 <section class="about" id="about">
-<div class="reveal"><div class="kicker">AN AH1 PRODUCTION</div><h2>Gardens Of Aphrodite: New Beginnings</h2><p>The story of the divine gods was told, now their next of kin is here to prove what ultimate power looks like.</p><a class="cta" href="#home">Return To The Courtyard</a></div>
+
+<div class="reveal">
+
+<div class="kicker">
+AN AH1 PRODUCTION
+</div>
+
+<h2>
+Gardens Of Aphrodite: New Beginnings
+</h2>
+
+<p>
+The story of the divine gods was told, now their next of kin is here to prove what ultimate power looks like.
+</p>
+
+<a class="cta" href="#home">
+Return To The Courtyard
+</a>
+
+</div>
+
 </section>
-<footer><span>Gardens of Aphrodite</span><span>© 2026 · All Rights Reserved</span></footer>
+
+
+<footer>
+
+<span>
+Gardens of Aphrodite
+</span>
+
+<span>
+© 2026 · All Rights Reserved
+</span>
+
+</footer>
+
+
+</main>
+
+
+
+<!-- =======================================================
+     CONTESTANT PROFILE PAGE
+======================================================== -->
+
+<section class="profile-page" id="profilePage">
+
+
+<div class="profile-inner">
+
+
+<a class="profile-back" href="#contestants">
+← Return To The Goddesses
+</a>
+
+
+<div class="profile-box">
+
+
+<div class="profile-portrait" id="profilePortrait">
+</div>
+
+
+<div class="profile-content">
+
+
+<div class="number" id="profileNumber">
+01
+</div>
+
+
+<h2 id="profileName">
+Angelica
+</h2>
+
+
+<div class="divine-parent" id="profileParent">
+Daughter Of Flora
+</div>
+
+
+<p class="profile-description" id="profileDescription">
+</p>
+
+
+<div class="profile-details">
+
+
+<div class="detail">
+
+<span>
+Divine Parent
+</span>
+
+<strong id="profileGod">
+Flora
+</strong>
+
+</div>
+
+
+<div class="detail">
+
+<span>
+Competition
+</span>
+
+<strong>
+Season One
+</strong>
+
+</div>
+
+
+<div class="detail">
+
+<span>
+Realm
+</span>
+
+<strong>
+Elystria
+</strong>
+
+</div>
+
+
+<div class="detail">
+
+<span>
+Status
+</span>
+
+<strong>
+Competing
+</strong>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
 <script>
-const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12});
-document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+
+/* =========================================================
+   CONTESTANT DATA
+========================================================= */
+
+const contestants = [
+
+{
+    name:"Angelica",
+    parent:"Flora",
+    title:"Daughter Of Flora",
+    bio:"Born beneath the blooming influence of Flora, Angelica enters the Garden carrying the beauty of spring. Graceful, elegant and quietly confident, she knows that beauty is only the beginning of her power."
+},
+
+{
+    name:"Envy",
+    parent:"Hera",
+    title:"Daughter Of Hera",
+    bio:"The daughter of Hera arrives with an unmistakable regal presence. Envy knows her worth and has no intention of allowing another goddess to stand between her and the crown."
+},
+
+{
+    name:"Karma",
+    parent:"Artemis",
+    title:"Daughter Of Artemis",
+    bio:"Karma carries the fierce independence of Artemis. A natural hunter with a sharp instinct for survival, she enters the Garden ready to chase down anything that stands between her and victory."
+},
+
+{
+    name:"Katy Perrie",
+    parent:"Eos",
+    title:"Daughter Of Eos",
+    bio:"A daughter of Eos, Katy Perrie arrives like the first light of dawn. Radiant, theatrical and impossible to ignore, she intends to illuminate the entire Garden."
+},
+
+{
+    name:"Miho",
+    parent:"Persephone",
+    title:"Daughter Of Persephone",
+    bio:"Miho possesses the duality of Persephone herself. She can be delicate as spring one moment and dark as the Underworld the next, making her one of the Garden's most unpredictable daughters."
+},
+
+{
+    name:"Nada Bitch",
+    parent:"Nike",
+    title:"Daughter Of Nike",
+    bio:"Victory runs through Nada Bitch's veins. As the daughter of Nike, she has entered the Garden for one reason: to win. She is competitive, determined and never willing to settle for second place."
+},
+
+{
+    name:"Ponya",
+    parent:"Fauna",
+    title:"Daughter Of Fauna",
+    bio:"Wild, playful and completely unpredictable, Ponya brings the untamed spirit of Fauna into the Garden. She refuses to be controlled and thrives when the rules begin to disappear."
+},
+
+{
+    name:"Sage Y. Pierre",
+    parent:"Athena",
+    title:"Daughter Of Athena",
+    bio:"Sage Y. Pierre approaches the competition with intelligence and strategy. A daughter of Athena, she understands that the strongest weapon in the Garden may not be physical power, but knowing exactly when to strike."
+},
+
+{
+    name:"Susie",
+    parent:"Khione",
+    title:"Daughter Of Khione",
+    bio:"Cool, elegant and seemingly untouchable, Susie carries the icy beauty of Khione. Beneath her composed exterior lies a goddess capable of freezing out anyone who threatens her crown."
+},
+
+{
+    name:"Valoura",
+    parent:"Nyx",
+    title:"Daughter Of Nyx",
+    bio:"Valoura comes from the darkness itself. As the daughter of Nyx, she understands shadows, secrets and the power of being impossible to read. She doesn't need the spotlight to command attention."
+},
+
+{
+    name:"Venetia",
+    parent:"Chronos",
+    title:"Daughter Of Chronos",
+    bio:"Venetia understands that time is the greatest weapon of all. Patient and calculated, she is willing to let the other goddesses make their mistakes while she waits for her perfect moment."
+},
+
+{
+    name:"Yura",
+    parent:"Hecate",
+    title:"Daughter Of Hecate",
+    bio:"Mysterious and intuitive, Yura carries the magic of Hecate. She moves between light and darkness with ease and possesses an uncanny ability to sense what others cannot."
+}
+
+];
+
+
+/* =========================================================
+   CREATE CONTESTANT CARDS
+========================================================= */
+
+const contestantGrid =
+document.getElementById("contestantGrid");
+
+
+contestants.forEach((contestant,index)=>{
+
+
+    const slug =
+        contestant.name
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g,"-")
+        .replace(/^-|-$/g,"");
+
+
+    const card =
+        document.createElement("a");
+
+
+    card.className =
+        "card reveal";
+
+
+    card.href =
+        "#profile/" + slug;
+
+
+    card.innerHTML = `
+
+        <div class="portrait"></div>
+
+        <div class="card-info">
+
+            <div class="number">
+                ${String(index+1).padStart(2,"0")}
+            </div>
+
+            <h3>
+                ${contestant.name}
+            </h3>
+
+            <div class="tag">
+                ${contestant.title}
+            </div>
+
+        </div>
+
+    `;
+
+
+    contestantGrid.appendChild(card);
+
+});
+
+
+
+/* =========================================================
+   PROFILE PAGE ROUTING
+========================================================= */
+
+function getSlug(name){
+
+    return name
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g,"-")
+        .replace(/^-|-$/g,"");
+
+}
+
+
+function showProfile(slug){
+
+    const contestant =
+        contestants.find(
+            person =>
+                getSlug(person.name) === slug
+        );
+
+
+    const mainSite =
+        document.getElementById("main-site");
+
+    const profilePage =
+        document.getElementById("profilePage");
+
+
+    if(!contestant){
+
+        mainSite.style.display =
+            "block";
+
+        profilePage.classList.remove(
+            "active"
+        );
+
+        return;
+    }
+
+
+    const index =
+        contestants.indexOf(
+            contestant
+        );
+
+
+    document.getElementById(
+        "profileNumber"
+    ).textContent =
+        String(index+1).padStart(2,"0");
+
+
+    document.getElementById(
+        "profileName"
+    ).textContent =
+        contestant.name;
+
+
+    document.getElementById(
+        "profileParent"
+    ).textContent =
+        contestant.title;
+
+
+    document.getElementById(
+        "profileGod"
+    ).textContent =
+        contestant.parent;
+
+
+    document.getElementById(
+        "profileDescription"
+    ).textContent =
+        contestant.bio;
+
+
+    /*
+       Give each goddess a slightly
+       different visual tone.
+    */
+
+    const hue =
+        (index * 27) - 40;
+
+
+    document.getElementById(
+        "profilePortrait"
+    ).style.filter =
+        `hue-rotate(${hue}deg) saturate(.85)`;
+
+
+    mainSite.style.display =
+        "none";
+
+
+    profilePage.classList.add(
+        "active"
+    );
+
+
+    window.scrollTo(
+        0,
+        0
+    );
+
+}
+
+
+/* =========================================================
+   HASH NAVIGATION
+========================================================= */
+
+function handleRoute(){
+
+    const hash =
+        window.location.hash;
+
+
+    if(
+        hash.startsWith(
+            "#profile/"
+        )
+    ){
+
+        const slug =
+            hash.substring(9);
+
+        showProfile(slug);
+
+    }else{
+
+        document
+            .getElementById("profilePage")
+            .classList.remove("active");
+
+        document
+            .getElementById("main-site")
+            .style.display = "block";
+
+    }
+
+}
+
+
+window.addEventListener(
+    "hashchange",
+    handleRoute
+);
+
+
+handleRoute();
+
+
+
+/* =========================================================
+   SCROLL REVEALS
+========================================================= */
+
+const observer =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(
+                entry => {
+
+                    if(
+                        entry.isIntersecting
+                    ){
+
+                        entry.target
+                            .classList
+                            .add("show");
+
+                    }
+
+                }
+            );
+
+        },
+        {
+            threshold:.12
+        }
+    );
+
+
+document
+    .querySelectorAll(".reveal")
+    .forEach(
+        element =>
+            observer.observe(element)
+    );
+
+
+
+/* =========================================================
+   GOLD PARTICLES
+========================================================= */
+
+const particles =
+    document.getElementById(
+        "particles"
+    );
+
+
+for(
+    let i=0;
+    i<90;
+    i++
+){
+
+    const particle =
+        document.createElement(
+            "span"
+        );
+
+
+    particle.className =
+        "particle";
+
+
+    particle.style.left =
+        Math.random()*100 + "%";
+
+
+    particle.style.top =
+        70 +
+        Math.random()*35 +
+        "%";
+
+
+    particle.style.setProperty(
+        "--drift",
+        (Math.random()*180 - 90) +
+        "px"
+    );
+
+
+    particle.style.animationDuration =
+        8 +
+        Math.random()*16 +
+        "s";
+
+
+    particle.style.animationDelay =
+        -Math.random()*20 +
+        "s";
+
+
+    const size =
+        Math.random() < .8
+        ? 2
+        : 3;
+
+
+    particle.style.width =
+        size + "px";
+
+
+    particle.style.height =
+        size + "px";
+
+
+    particles.appendChild(
+        particle
+    );
+
+}
+
+
+
+/* =========================================================
+   NAVIGATION SCROLL EFFECT
+========================================================= */
+
+window.addEventListener(
+    "scroll",
+    () => {
+
+        document
+            .getElementById("nav")
+            .classList
+            .toggle(
+                "scrolled",
+                window.scrollY > 40
+            );
+
+    }
+);
+
 </script>
+
 </body>
 </html>
